@@ -1,8 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:myapp/models/category_model.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List<CategoryModel> categories = [];
+
+  void _getCategories () {
+    categories = CategoryModel.getCategories();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +44,11 @@ class HomePage extends StatelessWidget {
               Container(
                 height: 150,
                 color: Colors.green,
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                  return Container();
+                },
+                ),
               ),
             ],
           ),
